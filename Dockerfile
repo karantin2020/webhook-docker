@@ -1,12 +1,12 @@
 # Dockerfile for https://github.com/adnanh/webhook
 
-FROM        node3030/golang:1.8.3 as builder
+FROM        golang:1.8.3-alpine3.6 as builder
 
 ENV         GOPATH /go
 ENV         SRCPATH ${GOPATH}/src/github.com/adnanh
 ENV         WEBHOOK_VERSION 2.6.4
 
-RUN         apk add --no-cache git build-base; \
+RUN         apk add git; \
             go get -u -v github.com/adnanh/webhook; \
 	    mkdir -p /go/bin; \
 	    cd $GOPATH/src/github.com/adnanh/webhook; \
