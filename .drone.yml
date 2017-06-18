@@ -1,0 +1,23 @@
+workspace:
+  base: /go
+  path: src/github.com/karantin2020/webhook-docker
+
+pipeline:
+  publish:
+    group: dopub
+    image: plugins/docker
+    repo: node3030/webhook
+    secrets: [ docker_username, docker_password ]
+    tag: [ latest ]
+    when:
+      branch: master
+      event: push
+      
+  release:
+    group: dopub
+    image: plugins/docker
+    repo: node3030/webhook
+    secrets: [ docker_username, docker_password ]
+    tag: [ ${DRONE_TAG##v} ]
+    when:
+      event: tag
