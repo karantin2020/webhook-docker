@@ -9,7 +9,8 @@ ENV         WEBHOOK_VERSION 2.6.4
 RUN         apk add --no-cache git build-base \
             && go get -u -v github.com/adnanh/webhook \
 	    && mkdir -p /go/bin \
-	    && go build -ldflags="-s -w" -v -o /go/bin/webhook
+	    && cd $GOPATH/src/github.com/adnanh/webhook \
+	    && go build -ldflags="-s -w" -v -o /go/bin/webhook webhook.go
 
 FROM alpine:3.6
 RUN apk --no-cache add ca-certificates \
