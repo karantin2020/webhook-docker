@@ -18,6 +18,6 @@ pipeline:
     image: plugins/docker
     repo: node3030/webhook
     secrets: [ docker_username, docker_password ]
-    tag: [ ${DRONE_TAG##v} ]
+    tags: ${DRONE_TAG##v}
     when:
       event: tag
