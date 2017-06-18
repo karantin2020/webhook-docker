@@ -10,7 +10,7 @@ RUN         apk add --no-cache git build-base \
             && go get -u -v github.com/adnanh/webhook \
 	    && mkdir -p /go/bin \
 	    && cd $GOPATH/src/github.com/adnanh/webhook \
-	    && go build -ldflags="-s -w" -v -o /go/bin/webhook webhook.go
+	    && go build -ldflags="-s -w" -v -o /go/bin/webhook
 
 FROM alpine:3.6
 RUN apk --no-cache add ca-certificates \
