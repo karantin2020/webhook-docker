@@ -1,6 +1,6 @@
 # Dockerfile for https://github.com/adnanh/webhook
 
-FROM        FROM golang:1.8.3-alpine3.6 as builder
+FROM        golang:1.8.3-alpine3.6 as builder
 
 ENV         GOPATH /go
 ENV         SRCPATH ${GOPATH}/src/github.com/adnanh
