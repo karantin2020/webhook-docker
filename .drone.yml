@@ -8,7 +8,7 @@ pipeline:
     image: plugins/docker
     repo: node3030/webhook
     secrets: [ docker_username, docker_password ]
-    tag: [ 'latest', '${DRONE_TAG##v}' ]
+    tag: [ 'latest', '2.6', '2.6.4' ]
     when:
       branch: master
       event: push
