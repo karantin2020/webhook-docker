@@ -14,10 +14,11 @@ RUN         apk add --update git build-base; \
 
 FROM        alpine:3.6
 RUN         apk --no-cache add ca-certificates; \
-	    mkdir -p /webhook
+	    mkdir -p /webhook/hooks
 WORKDIR     /webhook
 COPY        --from=builder /go/bin/webhook .
 
+VOLUME      /webhook/hooks
 EXPOSE      9000
 
 ENTRYPOINT  ["/webhook/webhook"]
