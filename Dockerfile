@@ -6,7 +6,7 @@ ENV         GOPATH /go
 ENV         SRCPATH ${GOPATH}/src/github.com/adnanh
 ENV         WEBHOOK_VERSION 2.6.4
 
-RUN         apk add git; \
+RUN         apk add --update git build-base; \
             go get -u -v github.com/adnanh/webhook; \
 	    mkdir -p /go/bin; \
 	    cd $GOPATH/src/github.com/adnanh/webhook; \
